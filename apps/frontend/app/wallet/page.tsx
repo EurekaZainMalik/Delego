@@ -40,7 +40,7 @@ export default function WalletPage() {
   const [passkeyOpen, setPasskeyOpen] = useState(false);
   const [friendbotOpen, setFriendbotOpen] = useState(false);
   const { isDemoMode } = useDemoModeGuard();
-  const { isOffline } = useOnlineStatus();
+  const { connectionStatus } = useOnlineStatus();
 
   const isConnected = status === "connected" && !!address;
   const balanceState = useBalanceHistory(
@@ -78,9 +78,9 @@ export default function WalletPage() {
   }, [friendbotState.status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleFund = useCallback(async () => {
-    if (!address || isDemoMode || isOffline) return;
+    if (!address || isDemoMode || connectionStatus !== "online") return;
     await fund(address);
-  }, [address, fund, isDemoMode, isOffline]);
+  }, [address, fund, isDemoMode, connectionStatus]);
 
   const openFriendbotModal = useCallback(() => {
     setFriendbotOpen(true);
@@ -288,9 +288,9 @@ export default function WalletPage() {
                       type="button"
                       className="friendbot-button"
                       onClick={openFriendbotModal}
-                      disabled={isDemoMode || isOffline}
+                      disabled={isDemoMode || connectionStatus !== "online"}
                       title={
-                        isOffline
+                        connectionStatus !== "online"
                           ? OFFLINE_BLOCKED_MESSAGE
                           : isDemoMode
                             ? DEMO_MODE_BLOCKED_MESSAGE
