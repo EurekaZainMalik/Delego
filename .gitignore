@@ -16,7 +16,6 @@ target/
 
 # IDE
 .idea/
-.vscode/
 *.swp
 *.swo
 .DS_Store
@@ -65,3 +64,10 @@ apps/frontend/mocks/fixtures/demo-world.json
 # Change log (internal, not for review)
 # Local changelog
 CHANGES.md
+
+# Per-session change notes (not for review)
+CHANGES-*.md
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
