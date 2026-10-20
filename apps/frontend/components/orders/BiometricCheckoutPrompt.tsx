@@ -306,6 +306,7 @@ export function BiometricCheckoutPrompt({
               <div className="flex gap-2">
                 <Button
                   type="button"
+                  variant="ghost"
                   ref={passkeyRef}
                   onClick={() => void runCheckout()}
                   data-testid="biometric-checkout-passkey"
