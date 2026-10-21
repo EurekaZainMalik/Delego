@@ -16,7 +16,6 @@ target/
 
 # IDE
 .idea/
-.vscode/
 *.swp
 *.swo
 .DS_Store
@@ -33,6 +32,7 @@ pnpm-debug.log*
 
 # Test / coverage
 coverage/
+temp_auto_push.bat
 .nyc_output/
 test-results/
 playwright-report/
@@ -68,3 +68,5 @@ CHANGES.md
 
 # Per-session change notes (not for review)
 CHANGES-*.md
+.gitignore
+branch_structure.json
